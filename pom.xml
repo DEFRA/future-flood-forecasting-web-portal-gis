@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>uk.gov.defra.future-flood-forecasting-web-portal</groupId>
+    <artifactId>future-flood-forecasting-web-portal-gis-database</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>future-flood-forecasting-web-portal-gis-database</name>
+    <url>https://github.com/DEFRA/future-flood-forecasting-web-portal</url>
+
+    <properties>
+        <liquibase.version>3.8.8</liquibase.version>
+        <sqlserver.version>8.2.2.jre8</sqlserver.version>
+        <azuread.version>1.6.5</azuread.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>${sqlserver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>adal4j</artifactId>
+            <version>${azuread.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>${liquibase.version}</version>
+                <configuration>
+                    <changeLogFile>src/main/resources/changelogs/db.changelog-master.xml</changeLogFile>
+                    <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                    <username>${FFFS_WEB_PORTAL_GIS_DB_ADMIN_USERNAME}</username>
+                    <password>${FFFS_WEB_PORTAL_GIS_DB_ADMIN_PASSWORD}</password>
+                    <url>${FFFS_WEB_PORTAL_GIS_DB_CONNECTION_STRING}</url>
+                    <systemProperties>
+                        <fffsWebPortalGisDbUsername>${FFFS_WEB_PORTAL_GIS_DB_USERNAME}</fffsWebPortalGisDbUsername>
+                        <fffsWebPortalGisDbPassword>${FFFS_WEB_PORTAL_GIS_DB_PASSWORD}</fffsWebPortalGisDbPassword>
+                        <fffsWebPortalGisDbDataSchema>${FFFS_WEB_PORTAL_GIS_DB_DATA_SCHEMA}</fffsWebPortalGisDbDataSchema>
+                        <fffsWebPortalGisDbDataUsername>${FFFS_WEB_PORTAL_GIS_DB_DATA_USERNAME}</fffsWebPortalGisDbDataUsername>
+                        <fffsWebPortalGisDbReaderUsername>${FFFS_WEB_PORTAL_GIS_DB_READER_USERNAME}</fffsWebPortalGisDbReaderUsername>
+                        <fffsWebPortalGisDbDataPassword>${FFFS_WEB_PORTAL_GIS_DB_DATA_PASSWORD}</fffsWebPortalGisDbDataPassword>
+                        <fffsWebPortalGisDbReaderPassword>${FFFS_WEB_PORTAL_GIS_DB_READER_PASSWORD}</fffsWebPortalGisDbReaderPassword>
+                        <fffsWebPortalGisDbSdePassword>${FFFS_WEB_PORTAL_GIS_DB_SDE_PASSWORD}</fffsWebPortalGisDbSdePassword>
+                    </systemProperties>    
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

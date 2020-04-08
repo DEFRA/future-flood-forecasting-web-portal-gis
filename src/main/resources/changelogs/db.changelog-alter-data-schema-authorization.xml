@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"> 
+  <changeSet author="pwadmore" id="changelog-alter-data-schema-authorization">
+	  <sql>
+      IF (EXISTS (SELECT * FROM information_schema.schemata WHERE schema_name = '${fffsWebPortalGisDbDataSchema}' AND schema_owner = 'dbo'))
+        ALTER AUTHORIZATION ON SCHEMA::${fffsWebPortalGisDbDataSchema} TO ${fffsWebPortalGisDbDataUsername}
+    </sql>
+	  <rollback>
+		  <sql>
+        IF (EXISTS (SELECT * FROM information_schema.schemata WHERE schema_name = '${fffsWebPortalGisDbDataSchema}' AND schema_owner = '${fffsWebPortalGisDbDataUsername}')) 
+          ALTER AUTHORIZATION ON SCHEMA::${fffsWebPortalGisDbDataSchema} TO dbo
+      </sql>
+	  </rollback>
+  </changeSet>
+</databaseChangeLog> 

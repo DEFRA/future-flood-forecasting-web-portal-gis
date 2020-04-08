@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DEFRA.FFF.WebPortalGIS</id>
+    <version>1.0.0.0</version>
+    <authors>DEFRA</authors>
+    <owners>DEFRA</owners>
+    <description>DEFRA.FFF.WebPortalGIS - Version control for bootstrapping the GIS database of the Future Flood Forecasting Web Portal. The GIS database is used for visualisation purposes.</description>
+  </metadata>
+  <files>
+    <file src="**/*.*" target="" exclude=".git/**/*.*" />
+  </files>
+</package>
