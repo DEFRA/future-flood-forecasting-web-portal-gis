@@ -1,6 +1,6 @@
 # Future Flood Forecasting Web Portal GIS Database
 
-Version control for bootstrapping the GIS database of the Future Flood Forecasting Web Portal. The GIS database is used for visualisation purposes.
+Version control for bootstrapping the GIS database of the Future Flood Forecasting Web Portal. The GIS database is used for visualisation purposes. Bootstrapping creates the required schemas, roles, users and permissions.
 
 ## Prerequisites
 
@@ -46,10 +46,14 @@ If using Docker
 * Ensure the required environment variables are set.
 * Run ./bootstrap.sh from the directory containing this file.
   
-## Local Linux Host Based Docker Build
+## Local Linux host based docker build
 
 * Ensure the required environment variables are set.
 * Run ./local-bootstrap.sh from  the directory containing this file. This creates a SQL Server 2017 instance containing a database called **fffswebportalgis** running in a Docker container. Volumes are not used at present.
+
+## Post build activities
+
+The GIS database must be [enabled](https://desktop.arcgis.com/en/arcmap/10.7/tools/data-management-toolbox/enable-enterprise-geodatabase.htm).
 
 ## Contributing to this project
 
