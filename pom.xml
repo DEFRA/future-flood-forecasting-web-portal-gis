@@ -49,8 +49,6 @@
                     <password>${FFFS_WEB_PORTAL_GIS_DB_ADMIN_PASSWORD}</password>
                     <url>${FFFS_WEB_PORTAL_GIS_DB_CONNECTION_STRING}</url>
                     <systemProperties>
-                        <fffsWebPortalGisDbUsername>${FFFS_WEB_PORTAL_GIS_DB_USERNAME}</fffsWebPortalGisDbUsername>
-                        <fffsWebPortalGisDbPassword>${FFFS_WEB_PORTAL_GIS_DB_PASSWORD}</fffsWebPortalGisDbPassword>
                         <fffsWebPortalGisDbDataSchema>${FFFS_WEB_PORTAL_GIS_DB_DATA_SCHEMA}</fffsWebPortalGisDbDataSchema>
                         <fffsWebPortalGisDbDataUsername>${FFFS_WEB_PORTAL_GIS_DB_DATA_USERNAME}</fffsWebPortalGisDbDataUsername>
                         <fffsWebPortalGisDbReaderUsername>${FFFS_WEB_PORTAL_GIS_DB_READER_USERNAME}</fffsWebPortalGisDbReaderUsername>
