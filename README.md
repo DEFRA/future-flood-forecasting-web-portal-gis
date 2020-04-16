@@ -6,7 +6,7 @@ Version control for bootstrapping the GIS database of the Future Flood Forecasti
 
 ### Mandatory
 
-* Java 8 or above
+* Java 11 or above
 * Maven 3.x
 * Either of the following:
   * Azure SQL database instance (for cloud deployment)

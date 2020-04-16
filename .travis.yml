@@ -2,18 +2,21 @@ matrix:
   include:
     - language: java
       
-      dist: xenial
+      dist: bionic
 
-      jdk: openjdk8
+      jdk: openjdk11
 
       sudo: false
 
       install: true
 
+      script:
+        - mvn --version      
+
     - language: node_js
 
       node_js:
-        - "8"
+        - "12"
 
       sudo: false
 
