@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"> 
+  <changeSet author="pwadmore" id="changelog-add-reader-user-to-gis-reader-role">
+	  <sql>
+      IF (NOT EXISTS (
+        SELECT r.* from (
+          SELECT IS_ROLEMEMBER('GIS_READER', '${fffsWebPortalGisDbReaderUsername}') AS ROLE_MEMBER
+        ) r
+        WHERE r.ROLE_MEMBER > 0
+      ))
+      ALTER ROLE GIS_READER ADD MEMBER ${fffsWebPortalGisDbReaderUsername}
+    </sql>
+	  <rollback>
+		  <sql>
+        IF (EXISTS (
+          SELECT r.* from (
+            SELECT IS_ROLEMEMBER('GIS_READER', '${fffsWebPortalGisDbReaderUsername}') AS ROLE_MEMBER
+          ) r
+          WHERE r.ROLE_MEMBER > 0
+        ))
+        ALTER ROLE GIS_READER DROP MEMBER ${fffsWebPortalGisDbReaderUsername}
+     </sql>
+	  </rollback>
+  </changeSet>
+</databaseChangeLog>

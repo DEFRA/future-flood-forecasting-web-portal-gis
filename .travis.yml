@@ -1,0 +1,27 @@
+matrix:
+  include:
+    - language: java
+      
+      dist: bionic
+
+      jdk: openjdk8
+
+      sudo: false
+
+      install: true
+
+      script:
+        - mvn --version      
+
+    - language: node_js
+
+      node_js:
+        - "12"
+
+      sudo: false
+
+      before_script:
+        - npm install markdownlint-cli
+
+      script:
+        - markdownlint $PWD --ignore node_modules

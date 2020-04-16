@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"> 
+  <changeSet author="pwadmore" id="changelog-create-data-user">
+	  <sql>
+      IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'${fffsWebPortalGisDbDataUsername}')
+        CREATE USER ${fffsWebPortalGisDbDataUsername} WITH PASSWORD = '${fffsWebPortalGisDbDataPassword}', DEFAULT_SCHEMA = ${fffsWebPortalGisDbDataSchema}
+    </sql>
+	  <rollback>
+		  <sql>
+        IF EXISTS (SELECT * FROM sys.database_principals WHERE name = N'${fffsWebPortalGisDbDataUsername}')
+          DROP USER ${fffsWebPortalGisDbDataUsername}
+      </sql>
+	  </rollback>
+  </changeSet>
+</databaseChangeLog> 

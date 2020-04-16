@@ -1,0 +1,25 @@
+name: 1.0.0.$(Build.BuildID)
+
+resources:
+  - repo: self
+
+pool:
+  vmImage: ubuntu-16.04
+
+trigger:
+  - master
+
+steps:
+  - task: NuGetCommand@2
+    displayName: 'NuGet pack'
+    inputs:
+      command: pack
+      packagesToPack: '$(Build.SourcesDirectory)/managedserver.nuspec'
+      versioningScheme: byBuildNumber
+
+  - task: NuGetCommand@2
+    displayName: 'NuGet push'
+    inputs:
+      command: push
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+      publishVstsFeed: '$(NugetFeed)'

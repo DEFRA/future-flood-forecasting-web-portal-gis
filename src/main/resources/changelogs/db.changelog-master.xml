@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <include file="./changelogs/db.changelog-create-data-schema.xml"/>
+  <include file="./changelogs/db.changelog-create-sde-schema.xml"/>
+  <include file="./changelogs/db.changelog-create-data-user.xml"/>
+  <include file="./changelogs/db.changelog-create-reader-user.xml"/>
+  <include file="./changelogs/db.changelog-create-sde-user.xml"/>
+  <include file="./changelogs/db.changelog-alter-data-schema-authorization.xml"/>
+  <include file="./changelogs/db.changelog-alter-sde-schema-authorization.xml"/>
+  <include file="./changelogs/db.changelog-grant-database-permissions-to-data-user.xml"/>
+  <include file="./changelogs/db.changelog-grant-database-permissions-to-sde-user.xml"/>
+  <include file="./changelogs/db.changelog-create-gis-reader-role.xml"/>
+  <include file="./changelogs/db.changelog-grant-database-permissions-to-gis-reader-role.xml"/>
+  <include file="./changelogs/db.changelog-add-reader-user-to-gis-reader-role.xml"/>
+</databaseChangeLog>
+

@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  fffs-web-portal-gis-database:
+    build:
+      context: .
+      args:
+        - SA_PASSWORD
+      dockerfile: Dockerfile
+    image: "fffs-web-portal-gis/fffs-web-portal-gis-database"
+    container_name: "fffs-web-portal-gis-database"
+    ports:
+      - "${FFFS_WEB_PORTAL_GIS_DB_HOST_PORT:-1433}:${FFFS_WEB_PORTAL_GIS_DB_CONTAINER_PORT:-1433}"
+    networks:
+      - docker_database
+networks:
+  docker_database:
+    driver: bridge
