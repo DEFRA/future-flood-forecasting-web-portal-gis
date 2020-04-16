@@ -4,7 +4,7 @@ matrix:
       
       dist: bionic
 
-      jdk: openjdk11
+      jdk: openjdk8
 
       sudo: false
 
