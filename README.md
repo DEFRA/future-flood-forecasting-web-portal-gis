@@ -14,7 +14,7 @@ Version control for bootstrapping the GIS database of the Future Flood Forecasti
 
 ### Optional
 
-If using Docker
+If using Docker:
 
 * Docker 19.03.7 CE or later
 * Docker Compose 1.25.4 or later
