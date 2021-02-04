@@ -1,9 +1,9 @@
 version: 2
 updates:
-- package-ecosystem: maven"
+- package-ecosystem: "maven"
   directory: "/"
   schedule:
     interval: "daily"
-    time: "17:10"
+    time: "17:17"
   target-branch: "feature/update-dependabot-integration"  
   open-pull-requests-limit: 10
