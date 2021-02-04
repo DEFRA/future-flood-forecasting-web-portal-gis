@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 3
+      - name: Cache node.js modules
+        uses: actions/cache@v2
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-          
+      - name: Install node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Install markdown linting package
+        run: |
+          npm install markdownlint-cli
+      - name: Run markdown linting check
+        run: |
+          node_modules/.bin/markdownlint $PWD --ignore node_modules
