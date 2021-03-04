@@ -1,6 +1,8 @@
-# Future Flood Forecasting Web Portal GIS Database
+# Incident Management Forecasting (Known Previously As Future Flood Forecasting) Web Portal GIS Database
 
-Version control for bootstrapping the GIS database of the Future Flood Forecasting Web Portal. The GIS database is used for visualisation purposes. Bootstrapping creates the required schemas, roles, users and permissions.
+[![CI](https://github.com/DEFRA/future-flood-forecasting-web-portal-gis/actions/workflows/ci.yml/badge.svg)](https://github.com/DEFRA/future-flood-forecasting-web-portal-gis/actions/workflows/ci.yml)
+
+Version control for bootstrapping the GIS database of the Incident Management Forecasting Web Portal. The GIS database is used for visualisation purposes. Bootstrapping creates the required schemas, roles, users and permissions.
 
 ## Prerequisites
 
