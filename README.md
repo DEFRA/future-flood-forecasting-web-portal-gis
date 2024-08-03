@@ -41,7 +41,7 @@ If using Docker:
 |------------------------------------------------|-------------------------------------------------------|----------|---------|-------------|
 | FFFS_WEB_PORTAL_GIS_DB_CONTAINER_PORT          | Container port for the database                       | no       | 1433    |             |
 | FFFS_WEB_PORTAL_GIS_DB_HOST_PORT               | Host port for the database                            | no       | 1433    |             |
-| SA_PASSWORD                                    | System administrator password                         | yes      |         |             |
+| MSSQL_SA_PASSWORD                              | System administrator password                         | yes      |         |             |
 
 ## Azure SQL based build
 
