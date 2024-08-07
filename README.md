@@ -19,7 +19,6 @@ Version control for bootstrapping the GIS database of the Incident Management Fo
 If using Docker:
 
 * Docker 19.03.7 CE or later
-* Docker Compose 1.25.4 or later
 
 ## Common environment variables
 
