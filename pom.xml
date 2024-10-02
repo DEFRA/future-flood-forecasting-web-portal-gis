@@ -7,12 +7,12 @@
     <groupId>uk.gov.defra.future-flood-forecasting-web-portal</groupId>
     <artifactId>future-flood-forecasting-web-portal-gis-database</artifactId>
     <packaging>jar</packaging>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <name>future-flood-forecasting-web-portal-gis-database</name>
     <url>https://github.com/DEFRA/future-flood-forecasting-web-portal</url>
 
     <properties>
-        <liquibase.version>4.29.1</liquibase.version>
+        <liquibase.version>4.29.2</liquibase.version>
         <sqlserver.version>12.8.0.jre8</sqlserver.version>
         <azureidentity.version>1.13.2</azureidentity.version>
         <maven.compiler.target>1.8</maven.compiler.target>
