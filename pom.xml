@@ -12,7 +12,7 @@
     <url>https://github.com/DEFRA/future-flood-forecasting-web-portal</url>
 
     <properties>
-        <liquibase.version>4.33.0</liquibase.version>
+        <liquibase.version>5.0.1</liquibase.version>
         <sqlserver.version>13.2.1.jre8</sqlserver.version>
         <azureidentity.version>1.18.1</azureidentity.version>
         <maven.compiler.target>1.8</maven.compiler.target>
