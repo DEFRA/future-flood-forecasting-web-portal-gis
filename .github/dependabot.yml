@@ -5,3 +5,7 @@ updates:
   schedule:
     interval: "daily"
   open-pull-requests-limit: 10
+  # Minimum age before suggesting updates (supply chain security).
+  # Security updates bypass the cooldown.
+  cooldown:
+    default-days: 7
