@@ -14,7 +14,7 @@
     <properties>
         <liquibase.version>5.0.3</liquibase.version>
         <sqlserver.version>13.4.0.jre11</sqlserver.version>
-        <azureidentity.version>1.18.1</azureidentity.version>
+        <azureidentity.version>1.18.3</azureidentity.version>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
     </properties>
