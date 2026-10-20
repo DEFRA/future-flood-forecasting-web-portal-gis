@@ -15,7 +15,6 @@ steps:
       sudo apt install -y mono-complete
     displayName: 'Install mono'
 
-steps:
   - task: NuGetCommand@2
     displayName: 'NuGet pack'
     inputs:
