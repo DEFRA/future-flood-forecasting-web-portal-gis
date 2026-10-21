@@ -4,12 +4,17 @@ resources:
   - repo: self
 
 pool:
-  vmImage: ubuntu-22.04
+  vmImage: ubuntu-24.04
 
 trigger:
   - master
 
 steps:
+  - script: |
+      sudo apt update
+      sudo apt install -y mono-complete
+    displayName: 'Install mono'
+
   - task: NuGetCommand@2
     displayName: 'NuGet pack'
     inputs:
